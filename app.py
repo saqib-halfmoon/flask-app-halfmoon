@@ -16,7 +16,7 @@ app.config.update(
 #----------------------------------------
 
 @app.route("/")
-def hello():
+def index():
     return "Welcome to Main Page of Halfmoon App!"
 
 @app.route("/hello")
