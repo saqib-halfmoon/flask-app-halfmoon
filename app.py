@@ -17,7 +17,12 @@ app.config.update(
 
 @app.route("/")
 def hello():
-    return "Hello from Python!"
+    return "Welcome to Main Page of Halfmoon App!"
+
+@app.route("/hello")
+def hello():
+    return "Hello from Python!"    
+
 
 #----------------------------------------
 # launch
