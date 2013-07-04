@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, render_template, send_from_directory
 
 #----------------------------------------
 # initialization
@@ -15,14 +15,21 @@ app.config.update(
 # controllers
 #----------------------------------------
 
-@app.route("/")
-def index():
-    return "Welcome to Main Page of Halfmoon App!"
-
 @app.route("/hello")
 def hello():
-    return "Hello from Python!"    
+    return "Hello from Python!"  
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'ico/favicon.ico')
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+@app.route("/")
+def index():
+    return render_template('index.html')
 
 #----------------------------------------
 # launch
