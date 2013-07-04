@@ -1,5 +1,6 @@
 import os
 from flask import Flask, render_template, send_from_directory
+from time import gmtime, strftime
 
 #----------------------------------------
 # initialization
@@ -29,7 +30,8 @@ def page_not_found(e):
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+	time_now = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+	return render_template('index.html', time_now=time_now)
 
 #----------------------------------------
 # launch
