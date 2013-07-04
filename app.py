@@ -16,9 +16,10 @@ app.config.update(
 # controllers
 #----------------------------------------
 
-@app.route("/hello")
-def hello():
-    return "Hello from Python!"  
+@app.route("/user/<username>/")
+def user(username):
+    message = 'Welcome %s!' % username
+    return render_template('user.html', message=message) 
 
 @app.route('/favicon.ico')
 def favicon():

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %} - Page Not Found{% endblock %}
+{% block content %}
+
+  <p><h3>{{ message }}<h3></p>
+  
+  <p>  <h6>Replace guest with your name for testing dynamic URl</h6></p>
+  
+  <p><< Back to<a href="{{ url_for('index') }}" > Home</a></p>
+{% endblock %}
